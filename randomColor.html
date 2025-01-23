@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+
+</head>
+
+<body class="flex-col space-y-2 flex min-h-[50vh] min-w-screen items-center justify-center">
+    <h1 id="title" class="text-3xl underline"></h1>
+    <div id="box" class="w-72 rounded-md border-2 h-40"></div>
+
+    <button id="btn" class="p-2 cursor-pointer m-2 rounded-md text-white text-lg bg-blue-500">Generate color</button>
+    <h2 id="title2" class="text-2xl mt-4 capitalize">recent colors</h2>
+    <ul id="unorderedList"
+        class="mt-1 items-center justify-around rounded-md shadow-lg shadow-gray-100 max-w-[70vw] flex-wrap p-4 flex space-x-4 space-y-2"></ul>
+</body>
+
+<script>
+
+    //1. Add all elements you have to work on.
+
+    const box = document.getElementById('box');
+    const btn = document.getElementById('btn');
+    const title = document.getElementById('title');
+    const title2 = document.getElementById('title2');
+    const unorderedList = document.getElementById('unorderedList')
+
+
+    //2. Add event listeners to the button
+
+    btn.addEventListener('click', () => {
+        // string containing all possible values in hex
+        const posString = '0123456789abcdef'
+        var hex = '#'
+        
+        // loop for 6 times to get 6 random values from the string
+        
+        for (let i = 0; i < 6; i++) {
+            // random index from 0 to 15
+            
+            const randIndex = Math.floor(Math.random() * 16);
+            hex = hex + posString[randIndex];
+        }
+        // setting the background color of the box to the hex value
+        
+        console.log(hex);
+        box.style.backgroundColor = hex;
+        title.innerHTML = hex;
+        title.style.color = hex;
+        // creating a new list element and appending it to the unordered list
+
+
+        const elem = document.createElement('li');
+        elem.textContent = hex;
+        elem.style.backgroundColor = hex;
+        elem.style.color = 'white';
+        elem.style.padding = '6px';
+        elem.style.borderRadius = '5px';
+        unorderedList.appendChild(elem);
+    })
+
+
+</script>
+
+</html>

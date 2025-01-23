@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<style>
+    #subBtn {
+        border: 1px solid #000;
+        padding: 0.5rem 1rem;
+        background-color: #fff;
+        border-radius: 0.25rem;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container m-4 p-4 flex min-w-screen min-h-screen bg-gray-100 items-center justify-center">
+        <button id="subBtn" class="">subscribe</button>
+    </div>
+</body>
+<script>
+    // 1. Select the target element
+
+    const btn = document.getElementById('subBtn');
+
+    // 2. Add event listener to target element
+
+    btn.addEventListener('click', () => {
+        if (btn.innerHTML === 'subscribe') {
+            btn.innerHTML = 'subscribed';
+            btn.style.backgroundColor = '#111';
+            btn.style.color = '#fff';
+
+        }
+        else {
+            btn.innerHTML = 'subscribe';
+            btn.style.backgroundColor = '#fff';
+            btn.style.color = '#111';
+        }
+    });
+</script>
+
+</html>
